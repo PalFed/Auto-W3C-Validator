@@ -49,7 +49,7 @@ This page automatically detects DOM changes and will re-validate whenever one is
         else wrapper.classList.add("display-bottom");
     }
 
-    var domChangePaused=-1;
+    var domChangePaused=0;
 
 
     onDomChange(function(){
@@ -58,7 +58,7 @@ This page automatically detects DOM changes and will re-validate whenever one is
             domChangePaused++;
             w3c_validate("<!DOCTYPE html>", function() {domChangePaused--;});
         }
-        else if (domChangePaused==-1) domChangePaused=0;
+
     });
 </script>
 
