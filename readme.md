@@ -1,5 +1,7 @@
 **Auto W3C Validator**
 
+[View Demo Page](https://validator.palfed.com/)
+
 I built this validator while I was building PalFed to make sure that all of the pages I 
 was generating with php and updating via ajax contained valid markup. This Validator utilises The 
 [W3C Markup Validation Service](https://validator.w3.org/) combined with the [validator.nu HTML5 validator](https://html5.validator.nu/) to provide a fast and easy way to ensure that your web apps produce valid HTML5 as you develop them. 
