@@ -6,8 +6,23 @@
 
     Upon completion, the HTML returned by the validator along with the close link are put into #w3c-status-outer-wrapper
  */
+
+if (!Date.now) {
+    Date.now = function() { return new Date().getTime(); }
+}
+
+var w3c_lastCall=0;
+
 function w3c_validate(doctype, callbackfn)
 {
+    var w3c_thisCall=Date.now();
+    if ((w3c_thisCall-w3c_lastCall)<250)
+    {
+        console.log(w3c_thisCall+"-"+w3c_lastCall+"="+(w3c_thisCall-w3c_lastCall));
+        if (typeof callbackfn === 'function') callbackfn();
+        return false;
+    }
+    w3c_lastCall=w3c_thisCall;
     var div=document.getElementById("w3c-status-outer-wrapper");
     var close='<a href="javascript:void(0)" class="close-w3c-validator" onclick="w3c_close()">x</a>';
     if (div==null)

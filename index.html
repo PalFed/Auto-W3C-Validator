@@ -51,7 +51,8 @@ This page automatically detects DOM changes and will re-validate whenever one is
 
     var domChangePaused=-1;
 
-    onDomChange(function(e){
+
+    onDomChange(function(){
         if (domChangePaused==0)
         {
             domChangePaused++;
