@@ -8,8 +8,9 @@ In order to use it, you will need to install a local copy of the W3C Markup Vali
 There are instructions on how to do this in many places on the web, you can also 
 [use the instructions that I wrote](https://www.palfed.com/tech-tips/html5-validator) while I was creating the tool.
 
-Once you have the W3C validator installed locally, copy the `validator.config.sample.php` file to `validator.config.php` and
-update it with the details for your installation.
+Once you have the W3C validator installed locally, copy the `src/validator.config.sample.php` file to `src/validator.config.php` and
+update it with the details for your installation. You will need all the files in the src folder to make it work. The files 
+in the root folder are for the demo page only.
 
 On any page that you would like checked, simply include `src/validator.css` in your (development) CSS and add
 
