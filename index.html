@@ -10,13 +10,15 @@
 <body>
 <div id="inner">
 <h1><a href="https://www.palfed.com"><img id="logo" alt="PalFed Logo" src="https://www.palfed.com/design/img/PalFed-Logo.png"></a> Auto PHP W3C Validator</h1>
-<p>This page is validated with the <a href="https://github.com/PalFed/Auto-W3C-Validator">Auto W3C Validator</a>, you should see the results at the bottom. To experiment
-    with it, you can use the developer tools in your browser to modify elements and create illegal HTML, then click "re-check"
-    on the validator to see the errors. You can mouse over each error to see a snippet of the HTML that caused the error.</p>
+<p>This page is validated with the <a href="https://github.com/PalFed/Auto-W3C-Validator">Auto W3C Validator</a>
+    (you will find the source code for this demo there), you should see the results in the top right corner.<br>
+This page automatically detects DOM changes and will re-validate whenever one is detected. You can use the links below to add
+    change the page dynamically and see it in action, as well as change the positioning for the validator.
+</p>
 
 <p><em>Note that the server used for this demo is low power and may not always work! Please click re-check if you get an http error.</em></p>
 
-<p><a href="javascript:void(0)" onclick="changeStyle()">Click Here</a> to change the validator style</p>
+<p><a href="javascript:void(0)" onclick="changeStyle()">Click Here</a> to change the validator position</p>
 <p><a href="javascript:void(0)" onclick="addHTML()">Click Here</a> to add some HTML to this page with javascript, which may or may not be well formed.</p>
 <p><a href="javascript:void(0)" onclick="document.getElementById('added-html').innerHTML='';/* handled by onDomChange : w3c_validate('<!DOCTYPE html>', function() {domChangePaused--;});*/">Click Here</a> to clear all added HTML.</p>
 <div id="added-html"></div>

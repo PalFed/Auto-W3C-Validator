@@ -48,9 +48,11 @@ class validator
         if ($Summarize && ($this->Status!="Valid" || $this->Warnings))
         {
             $print.= "<div class='w3c-status-wrapper $class'>";
-            $print.= "W3C Validation: ".$this->Status." ";
-            if ($this->Status=="Invalid") $print.= "(".$this->Errors." errors, ".$this->Warnings." warnings). ";
-            else if (trim($this->Status)=="") "HTTP error retrieving result.";
+            $print.= "W3C Validation: ";
+            if ($this->Status=="Invalid") $print.= $this->Status." (".$this->Errors." errors, ".$this->Warnings." warnings). ";
+            else if (trim($this->Status)=="") $print.= "HTTP error retrieving result. ";
+            else if (trim($this->Status)=="Abort") $print.= "Sorry! This document cannot be checked. ";
+            else $print.=$this->Status." ";
             $print.="<a href='javascript:void(0)' onclick='w3c_validate(\"$Doctype\")' class='w3c-recheck-validation'>Re-check</a><br><br>";
             $arr=json_decode($this->JSON);
             $print.= "<ul>";
@@ -118,7 +120,7 @@ class validator
                 if ($this->Errors==0 && preg_match("/^\s*X-W3C-Validator-Errors:\s*(.+?)\s*$/", $validationresult, $matches)) {
                     $this->Errors=$matches[1];
                 }
-                if (preg_match("/Sorry! This document cannot be checked./", $validationresult))
+                if ($this->Status=="Abort")
                 {
                     $this->Errors="Sorry! This document cannot be checked.";
                 }
