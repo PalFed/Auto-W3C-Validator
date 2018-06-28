@@ -22,3 +22,5 @@ There is a hosted example of this at [https://validator.palfed.com/](https://val
 it in action, however it is on a low power dev server, so if you get connection errors, just click re-check. For my 
 development, I am running on a local installation with validator and my development site both on a Virtualbox VM on my 
 laptop and I have never had connection errors.
+
+Note that the Auto-W3C-Validator is intended to be used for development and not on production systems.
