@@ -1,0 +1,72 @@
+/* Option 1 : Top right, covering any elements underneath */
+
+#w3c-status-outer-wrapper {background: white;z-index:10000;margin: 10px 5px;border: 2px solid black;position: absolute; right: 5px; top: 5px;clear: both;float: none;}
+#w3c-status-outer-wrapper .w3c-status-valid{font-size: 0.8em;}
+#w3c-status-outer-wrapper .w3c-status-valid.w3c-status-wrapper{padding: 6px 16px 4px 4px;}
+
+/* Option 2 : At the end of the HTML */
+#w3c-status-outer-wrapper.display-bottom {background: white;margin: 10px 5px;border: 2px solid black;position: relative;clear: both;float: none;}
+#w3c-status-outer-wrapper.display-bottom .w3c-status-valid{font-size: 1em;}
+#w3c-status-outer-wrapper.display-bottom .w3c-status-valid.w3c-status-wrapper{padding: 10px 20px 10px 10px;}
+
+/* Common CSS */
+
+#w3c-status-outer-wrapper .loading {padding:10px;font-style:italic;}
+#w3c-status-outer-wrapper .error {padding:10px;font-weight: bold;color: red;}
+#w3c-status-outer-wrapper a.close-w3c-validator {position: absolute;top:0px;right:3px; color: black; text-decoration: none; font-family: Courier;}
+
+.w3c-status-wrapper {padding:10px 20px 10px 10px;}
+.w3c-status-wrapper ul {margin:0;}
+
+.w3c-status-abort {background-color: #999999; color: #FFFFFF}
+.w3c-status-invalid {background-color: #FF2222; color: #FFFFFF}
+.w3c-status-http-error {background-color: #AA1111; color: #FFFFFF}
+.w3c-status-warnings {background-color: #FF9900; color: #FFFFFF}
+.w3c-status-valid {background-color: lightgreen; color: black;}
+.w3c-status-unknown {background-color: #9999FF; color: #FFFFFF}
+.w3c-status-loading {background-color: #fdfd96; color: black}
+
+a.w3c-recheck-validation {color: inherit;}
+
+#w3c-status-outer-wrapper p {margin-top:0;padding-top:0;}
+
+/* Loading Spinner */
+
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    margin: 3px;
+    border: 3px solid #666;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #666 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Auto W3C Validator sample page</title>
+    <link rel="stylesheet" href="src/validator.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="detectDOMChange.js"></script>
+</head>
+<body>
+<div id="inner">
+<h1><a href="https://www.palfed.com"><img id="logo" alt="PalFed Logo" src="https://www.palfed.com/design/img/PalFed-Logo.png"></a> Auto PHP W3C Validator</h1>
+<p>This page is validated with the <a href="https://github.com/PalFed/Auto-W3C-Validator">Auto W3C Validator</a>, you should see the results at the bottom. To experiment
+    with it, you can use the developer tools in your browser to modify elements and create illegal HTML, then click "re-check"
+    on the validator to see the errors. You can mouse over each error to see a snippet of the HTML that caused the error.</p>
+
+<p><em>Note that the server used for this demo is low power and may not always work! Please click re-check if you get an http error.</em></p>
+
+<p><a href="javascript:void(0)" onclick="changeStyle()">Click Here</a> to change the validator style</p>
+<p><a href="javascript:void(0)" onclick="addHTML()">Click Here</a> to add some HTML to this page with javascript, which may or may not be well formed.</p>
+<p><a href="javascript:void(0)" onclick="document.getElementById('added-html').innerHTML='';/* handled by onDomChange : w3c_validate('<!DOCTYPE html>', function() {domChangePaused--;});*/">Click Here</a> to clear all added HTML.</p>
+<div id="added-html"></div>
+
+</div>
+
+<script type="text/javascript">
+    function addHTML()
+    {
+        var html="<p>This is <strong>well formed</strong></p>";
+        if (Math.round((Math.random()))==0) html="<p>This is <strongg>not well formed</p></p>";
+        document.getElementById("added-html").innerHTML += html;
+
+        // No need to re-run the validator as it is done by onDomChange
+        // but if we wanted to
+        //
+        // w3c_validate("<!DOCTYPE html>", function() {domChangePaused=false;});
+    };
+
+    function changeStyle()
+    {
+        var wrapper=document.getElementById("w3c-status-outer-wrapper");
+        if (wrapper.classList.contains("display-bottom")) wrapper.classList.remove("display-bottom");
+        else wrapper.classList.add("display-bottom");
+    }
+
+    var domChangePaused=-1;
+
+    onDomChange(function(e){
+        if (domChangePaused==0)
+        {
+            domChangePaused++;
+            w3c_validate("<!DOCTYPE html>", function() {domChangePaused--;});
+        }
+        else if (domChangePaused==-1) domChangePaused=0;
+    });
+</script>
+
+<script src="src/validator.js"></script>
+</body>
+</html>

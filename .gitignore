@@ -1,0 +1,10 @@
+src/validator.config.php
+/**/.settings
+/**/.buildpath
+/**/.project
+/**/.idea
+/**/._*
+/**/.DS_Store
+/**/[Tt]humbs.db
+/**/.sass-cache/*
+!.gitignore

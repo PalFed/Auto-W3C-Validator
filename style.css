@@ -1,0 +1,21 @@
+* {
+    font-family: Helvetica;
+}
+body {
+    background: #f9f9ff;
+}
+#inner
+{
+    padding: 10px;
+    margin: 10px;
+}
+p {
+    line-height: 1.4em;
+    font-size: 1.2em;
+}
+#logo
+{
+    height: 2em;
+    vertical-align: middle;
+}
+
